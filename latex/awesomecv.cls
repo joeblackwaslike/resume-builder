@@ -2,23 +2,23 @@
 %
 % Author:   Joe Black <me@joeblack.nyc> | http://joeblack.nyc
 % License:  MIT License
-% Notes:
-% This class file defines the structure and layout for my resume/cv in latex.
+% Notes: 
+%   This class file defines the structure and layout for my resume/cv in latex.
 %
-% It can be included in any existing or new latex document, but I have chosen
-% to keep my content in a jsonformat schema conforming yaml document which
-% allows for storing my data in a single place as a standard format usable by
-% anything that can handle the jsonresume format.
+%   It can be included in any existing or new latex document, but I have chosen
+%   to keep my content in a jsonresume schema conforming yaml document which
+%   allows for storing my data in a single place as a standard format usable by
+%   anything that can handle the jsonresume format.
 %
-% This document class is based on Awesome-CV with extensive modifications.
-% check out Awesome-CV here: https://github.com/posquit0/Awesome-CV
+%   This document class is based on Awesome-CV with extensive modifications.
+%   check out Awesome-CV here: https://github.com/posquit0/Awesome-CV
 %
 
 
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesomecv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+\ProvidesClass{awesomecv}[2018/12/15 v1.0.3 Joe's Awesome CV Class]
 \NeedsTeXFormat{LaTeX2e}
 
 
