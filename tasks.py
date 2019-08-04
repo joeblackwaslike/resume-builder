@@ -1,10 +1,23 @@
+import os
+
 from invoke import task
-from builder import ResumeDocument
 
 
 @task
 def build_docker(ctx):
     ctx.run("docker build -t joeblackwaslike/texlive:2016 docker-texlive")
+
+
+@task
+def generate_thumbnails(ctx):
+    filedir = "export"
+    filename = "Joe_Black_resume_backend-software-engineer_python_v2.0.4.pdf"
+    ctx.run("pdftoppm -png {} preview".format(os.path.join(filedir, filename)))
+
+
+@task
+def build_package(ctx):
+    ctx.run("pip3 install -r requirements.txt")
 
 
 def _build_pdf(ctx):
@@ -28,7 +41,9 @@ def _preview(ctx, file_name):
 
 
 @task
-def render(ctx, data="blockchain", pty=True):
+def render(ctx, data="bse-python", pty=True):
+    from builder import ResumeDocument
+
     data_path = f"data/{data}.yaml"
 
     # Generate latex
