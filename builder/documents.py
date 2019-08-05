@@ -36,20 +36,20 @@ class ResumeDocument(Document):
         )
         self.data.clear()
 
-    def add_basic(self, basic):
-        location = basic["location"]
+    def add_basics(self, basics):
+        location = basics["location"]
 
         for command in [
-            Command("name", basic["name"].split()),
-            Command("position", basic["label"]),
+            Command("name", basics["name"].split()),
+            Command("position", basics["label"]),
             Command("address", f"{location['city']}, {location['region']}"),
-            Command("mobile", basic["phone"]),
-            Command("email", basic["email"]),
-            Command("homepage", basic["url"]),
+            Command("mobile", basics["phone"]),
+            Command("email", basics["email"]),
+            Command("homepage", basics["website"]),
         ]:
             self.preamble.append(command)
 
-        for profile in basic["profiles"]:
+        for profile in basics["profiles"]:
             self.preamble.append(
                 Command(profile["network"].lower(), profile["username"])
             )
@@ -62,7 +62,7 @@ class ResumeDocument(Document):
 
     def load_metadata(self, resume):
         self._meta = resume["meta"]
-        self._basic = resume["basic"]
+        self._basic = resume["basics"]
 
     @property
     def file_name(self):
@@ -92,12 +92,12 @@ class ResumeDocument(Document):
 
         doc = cls(**kwargs)
         doc.load_metadata(resume)
-        doc.add_basic(resume["basic"])
+        doc.add_basics(resume["basics"])
         doc.add_header()
 
         doc.add_section("Summary")
         with doc.create(Paragraph()) as block:
-            block.append(resume["basic"]["summary"])
+            block.append(resume["basics"]["summary"])
 
         doc.add_section("Awards")
         with doc.create(Awards()) as awards:

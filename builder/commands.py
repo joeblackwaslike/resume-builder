@@ -135,10 +135,10 @@ class Experience(Entry):
     @classmethod
     def from_jsonresume(cls, dict_):
         data = jsonresume.parse_common("position location", dict_)
-        data["organization"] = dict_.get("name", "")
+        data["organization"] = dict_.get("company", "")
         data["dates"] = jsonresume.format_date_range(
             start=dict_.get("startDate"),
-            end=dict_.get("endDate"),
+            end=dict_.get("endDate", "Present"),
             fmt=cls._date_range_format,
         )
         return cls(**data)
@@ -176,9 +176,9 @@ class Education(Entry):
 
 class Project(BaseObject):
     _latex_name = "cvproject"
-    _props = "name url description keywords"
+    _props = "name url summary keywords"
 
-    def __init__(self, name="", url="", description="", keywords=""):
+    def __init__(self, name="", url="", summary="", keywords=""):
         lcls = locals()
         lcls.pop("self")
         BaseObject.__init__(self, **lcls)
@@ -187,6 +187,6 @@ class Project(BaseObject):
 class OSProject(Project):
     @classmethod
     def from_jsonresume(cls, dict_):
-        data = jsonresume.parse_common("name url description", dict_)
+        data = jsonresume.parse_common("name url summary", dict_)
         data["keywords"] = jsonresume.stringify_sequence(dict_.get("keywords"))
         return cls(**data)
