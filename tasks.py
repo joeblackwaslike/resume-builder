@@ -16,6 +16,11 @@ def generate_thumbnails(ctx):
 
 
 @task
+def dump_json(ctx):
+    ctx.run("yq . data/bse-python.yaml")
+
+
+@task
 def build_package(ctx):
     ctx.run("pip3 install -r requirements.txt")
 
