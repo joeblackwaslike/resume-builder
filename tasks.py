@@ -2,6 +2,8 @@ import os
 
 from invoke import task
 
+VERSION = "2.1.0"
+
 
 @task
 def build_docker(ctx):
@@ -11,7 +13,9 @@ def build_docker(ctx):
 @task
 def generate_thumbnails(ctx):
     filedir = "export"
-    filename = "Joe_Black_resume_backend-software-engineer_python_v2.0.4.pdf"
+    filename = (
+        f"Joe_Black_resume_backend-software-engineer_python_v{VERSION}.pdf"
+    )
     ctx.run("pdftoppm -png {} preview".format(os.path.join(filedir, filename)))
 
 
