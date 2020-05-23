@@ -3,3 +3,4 @@ export/*.pdf
 export/*.txt
 __pycache__/
 .DS_Store
+venv/

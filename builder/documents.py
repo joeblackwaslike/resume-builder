@@ -95,14 +95,9 @@ class ResumeDocument(Document):
         doc.add_basics(resume["basics"])
         doc.add_header()
 
-        doc.add_section("Summary")
-        with doc.create(Paragraph()) as block:
-            block.append(resume["basics"]["summary"])
-
-        doc.add_section("Awards")
-        with doc.create(Awards()) as awards:
-            for item in resume["awards"]:
-                awards.append(Award.from_jsonresume(item))
+        # doc.add_section("Summary")
+        # with doc.create(Paragraph()) as block:
+        #     block.append(resume["basics"]["summary"])
 
         doc.add_section("Skills")
         with doc.create(Skills()) as skills:
@@ -131,11 +126,16 @@ class ResumeDocument(Document):
                         items.append(Item(summary))
                 entries.append(entry)
 
-        doc.add_section("Education")
-        with doc.create(Entries()) as entries:
-            for item in resume["education"]:
-                entry = Education.from_jsonresume(item)
-                entries.append(entry)
+        doc.add_section("Awards")
+        with doc.create(Awards()) as awards:
+            for item in resume["awards"]:
+                awards.append(Award.from_jsonresume(item))
+
+        # doc.add_section("Education")
+        # with doc.create(Entries()) as entries:
+        #     for item in resume["education"]:
+        #         entry = Education.from_jsonresume(item)
+        #         entries.append(entry)
 
         doc.add_section("Open Source Projects")
         with doc.create(Projects()) as entries:
