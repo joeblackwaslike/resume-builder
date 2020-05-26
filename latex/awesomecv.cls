@@ -2,7 +2,7 @@
 %
 % Author:   Joe Black <me@joeblack.nyc> | http://joeblack.nyc
 % License:  MIT License
-% Notes: 
+% Notes:
 %   This class file defines the structure and layout for my resume/cv in latex.
 %
 %   It can be included in any existing or new latex document, but I have chosen
@@ -110,7 +110,7 @@
 %% Page Layout
 % Configure page margins with geometry
 % \geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
-\geometry{left=1.0in, top=1.0in, right=1.0in, bottom=1.0in, footskip=0in}
+\geometry{left=0.5in, top=0.5in, right=0.5in, bottom=0.5in, footskip=0in}
 
 
 %% Header & Footer
@@ -770,7 +770,7 @@
   \letternamestyle{\@firstname\ \@lastname}
   \ifthenelse{\isundefined{\@letterenclosure}}
     {\\}
-    {% 
+    {%
       \\\\\\
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
