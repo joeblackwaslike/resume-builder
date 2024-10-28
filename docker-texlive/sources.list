@@ -1,0 +1,5 @@
+deb http://archive.debian.org/debian stretch main
+deb-src http://archive.debian.org/debian stretch main
+
+deb http://archive.debian.org/debian-security stretch/updates main
+deb-src http://archive.debian.org/debian-security stretch/updates main

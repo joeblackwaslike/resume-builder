@@ -1,0 +1,86 @@
+\documentclass[11pt,letterpaper]{awesomecv}%
+%
+%
+\colorlet{awesome}{awesome-emerald}%
+\name{Joe}{Black}%
+\position{Backend software engineer | Python expert}%
+\address{New York, NY}%
+\mobile{(646) 924-7718}%
+\email{me@joeblack.nyc}%
+\homepage{joeblack.nyc}%
+\github{joeblackwaslike}%
+\linkedin{joeblack949}%
+%
+\begin{document}%
+\makecvheader[L]%
+\cvsection{Summary}%
+\begin{cvparagraph}
+Innovative Senior Software Engineer with 10+ years experience designing and scaling backend systems, and leading cross-functional teams. Known for a gritty approach, combining passion and perseverance in delivering high-performance API architectures, cloud-native solutions, and cryptographic security protocols, driving innovation. Thrive in fast-paced environments; self-motivated with a growth mindset. Expertise in Python, AWS, Docker, Kubernetes, and blockchain technologies. Inquisitive, seeking creative solutions; possess a willingness to learn and to mentor others.
+\end{cvparagraph}%
+\cvsection{Skills}%
+\begin{cvskills}
+\cvskill{Programming Languages}{Python, Shell, Javascript, Solidity, Golang, Rust}
+\cvskill{Technologies}{Cryptography, Blockchain, LLMs/LangChain, SQL and NoSQL, Redis, Neo4j, REST, GraphQL, gRPC, OAuth/OIDC}
+\cvskill{Infrastructure \& Cloud}{Linux, Unix, Docker, Kubernetes, AWS, Google Cloud, Datadog, Twilio, Segment, Git, Github}
+\end{cvskills}%
+\cvsection{Work Experience}%
+\begin{cventries}
+\cventry{Senior Software Engineer (Backend)}{Magic Labs, Inc}{2020-12 -- 2024-03}{San Francisco, CA - Remote}{ 
+ \begin{cvitems}
+\item{Led backend services and API development for Magic SDK, scaling platform to 1M+ monthly users and reducing latency by 50\%; Optimized API performance, achieving 5-10x speed improvements and reducing infrastructure costs by 25\%}
+\item{Developed key developer tooling (Crud Router, Factor Verifier, Deferred Calls), cutting response times by 70\%, feature timelines by 50\%, and technical debt; architected Wallet-as-a-Service.}
+\item{Led enterprise web3 adoption with clients like Paypal, 7Eleven, and Forbes, adding \$3M in annual recurring revenue.}
+\item{Mitigated phishing attacks using cryptographic root-of-trust protocol, securing 3M+ devices (pending patent for "Anonymous Device Fingerprinting").}
+\item{Mentored 8-10 engineers, enhancing skills through 1:1s, technical reviews, and formal engineering documentation.}
+\end{cvitems} 
+}
+\cventry{Senior Python Engineer}{Code \& Theory}{2019-08 -- 2020-03}{New York, NY}{ 
+ \begin{cvitems}
+\item{Architected the CNN Datacloud to process 150M+ real-time political data points over 100 years and 30+ dimensions, powering the data visualizations on John King’s Magic Wall for election night 2020 designed to scale for millions of viewers.}
+\item{Managed Quality Assurance (QA) to Zero tolerance for incorrect data, bugs, or latency for live broadcasts.}
+\item{Built ETL pipelines in Airflow, projected to process 100K+ daily ingests from diverse electoral and financial datasets.}
+\item{Developed a geospatial-temporal microservice expected to process 20,000+ requests per minute to optimize real-time election donation analysis and government representative lookups for high-volume traffic.}
+\item{Led a tech-leadership initiative to mentor 8 Python engineers, projected to improve team productivity by 30\% and code quality on 5 critical projects.}
+\item{Customized a Neomodel-based ORM to generate dynamic markdown documentation, expected to reduce manual effort by 50\% or 100+ hours annually.}
+\end{cvitems} 
+}
+\cventry{Senior Software Engineer}{See-Thru Healthcare}{2019-04 -- 2019-08}{Brooklyn, NY}{ 
+ \begin{cvitems}
+\item{Led the architecture and development of a group tele-therapy platform, serving over 1,000 members, using serverless cloud infrastructure with GraphQL + Relay API on AWS Lambda and React.js.}
+\item{Streamlined development and flexible problem solving for a small team, increasing productivity by 30\%, through serverless architecture cloud-first solutions.}
+\item{Developed a unified OAuth identity provider, onboarding over 1,000 users, helping scale the telemedicine marketplace and driving its growth.}
+\end{cvitems} 
+}
+\cventry{Co-founder \& Senior Software Engineer}{Telephone}{2017-06 -- 2018-12}{New York, NY}{ 
+ \begin{cvitems}
+\item{Co-founded a pre-ICO startup; developed a decentralized communications app similar to Signal on the Ethereum blockchain.}
+\item{Secured private communications for an expected 10,000+ users through API architecture for scalability and privacy, dark-routing and smart contracts to prevent passive traffic analysis and ensure message integrity.}
+\item{Designed a decentralized services marketplace, projected to onboard 100+ services, incentivizing development and supporting a token economy to handle secure media relays and offline message retrieval for 1,000+ anticipated daily users.}
+\end{cvitems} 
+}
+\end{cventries}%
+\cvsection{Open Source Projects}%
+\begin{cvprojects}
+\cvproject{BTCPay-python}{https://github.com/btcpayserver/btcpay-python}{The official python client for the BTCPay Server API, an open-source payment processor for bitcoin and litecoin.}{python, cryptocurrency, bitcoin, RESTful APIs, BTCPay}
+\cvproject{coinaddr}{https://github.com/joeblackwaslike/coinaddr}{Cryptocurrency address inspection/validation library for python}{blockchain, python, validation, cryptocurrency}
+\cvproject{Pricing}{https://github.com/joeblackwaslike/pricing}{A python package for aggregating, converting, and formatting of prices in a variety of currencies, including crypto and custom.}{python, pricing, money, localization, currency, cryptocurrency, currency exchange}
+\cvproject{TmplD}{https://github.com/joeblackwaslike/tmpld}{Advanced configuration templating in jinja2 using cluster state for self-configuring, containerized, microservice architectures.}{python, containers, docker, kubernetes, jinja2, configuration, microservices}
+\end{cvprojects}%
+\cvsection{Community Engagement}%
+\begin{cventries}
+\cventry{Mentor}{Noisebridge Hackerspace}{2013 -- 2015}{San Francisco, CA}{ 
+ \begin{cvitems}
+\item{Mentored across a variety of engineering related projects, tools, and tasks.}
+\end{cvitems} 
+}
+\cventry{Speaker}{HackMiami Conference}{2014}{Miami, FL}{ 
+ \begin{cvitems}
+\item{Delivered a bio-hacking talk with the Co-founder about the usage of various technologies.}
+\end{cvitems} 
+}
+\end{cventries}%
+\cvsection{Awards}%
+\begin{cvhonors}
+\cvhonor{2014-01}{Winner}{Stanford Datajam, a hackathon sponsored by the US Department of Education.}{Palo Alto, CA}
+\end{cvhonors}%
+\end{document}

@@ -1,16 +1,65 @@
-[tool.poetry]
+[project]
 name = "resume-builder"
-version = "0.1.0"
+version = "2.1.0"
 description = "A resume builder that stores resume data in jsonresume conforming yaml and dynamically builds a beautifully typset PDF in LaTeX"
-authors = ["Joe Black <me@joeblack.nyc>"]
+readme = "README.md"
+authors = [{ name = "Joe Black", email = "me@joeblack.nyc" }]
+requires-python = ">=3.8"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+    "PyLaTeX", 
+    "PyYAML",
+    "invoke",
+    "typer",
+    "sh",
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-PyLaTeX = "^1.3"
-PyYAML = "^5.1"
-
-[tool.poetry.dev-dependencies]
+[project.urls]
+Documentation = "https://github.com/joeblackwaslike/resume-builder"
+Issues = "https://github.com/joeblackwaslike/resume-builder/issues"
+Source = "https://github.com/joeblackwaslike/resume-builder"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+resume-builder = "resume_builder.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.isort]
+profile = "wemake"
+src_paths = ["builder"]
+force_single_line = true
+use_parentheses = true
+atomic = true
+lines_after_imports = 2
+line_length = 100
+order_by_type = false
+known_first_party = ["builder"]
+
+[tool.black]
+exclude = '''
+/(
+    \.git
+    \.venv
+    \data
+    \docker-texlive
+    \export
+    \latex
+    \scripts
+  | \data
+)/
+'''
+line_length = 100
+safe = true
