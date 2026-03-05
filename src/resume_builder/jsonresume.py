@@ -1,18 +1,17 @@
-import datetime
+from datetime import datetime
 
 
 def parse_common(names, data):
     return {f: data.get(f, "") for f in names.split()}
 
 
-def format_date(date, fmt="%m/%Y"):
-    try:
-        date = datetime.datetime.fromisoformat(date).date()
-        fmt = "{:" + fmt + "}"
-        date = fmt.format(date)
-    except ValueError:
-        date = date.capitalize()
-    return date
+def format_date(value, fmt="%m/%Y"):
+    parts = value.split("-")
+    if len(parts) == 2:
+        parts.append("01")
+
+    dt = datetime.fromisoformat("-".join(parts))
+    return dt.strftime(fmt)
 
 
 def add_section_items(obj, item_processor):
@@ -23,7 +22,7 @@ def add_section_items(obj, item_processor):
 
 
 def parse_year(date):
-    date = datetime.datetime.fromisoformat(date).date()
+    date = datetime.fromisoformat(date).date()
     return str(date.year)
 
 

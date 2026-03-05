@@ -2,9 +2,9 @@ local/
 export/*.pdf
 export/*.txt
 __pycache__/
-.DS_Store
+**/.DS_Store
 .venv/
 *.egg-info/
 latex/temp
 latex/temp.log
-latex/textput.log
+latex/texput.log

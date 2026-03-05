@@ -4,5 +4,11 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"postman.settings.dotenv-detection-notification-visibility": false,
+		"makefile.configureOnOpen": false,
+		"python.languageServer": "Pylance",
+		"terminal.integrated.enableImages": true,
+		"python.terminal.activateEnvInCurrentTerminal": true
+	}
 }

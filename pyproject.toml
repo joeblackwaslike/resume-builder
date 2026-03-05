@@ -15,11 +15,13 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
 ]
 dependencies = [
-    "PyLaTeX", 
+    "PyLaTeX",
     "PyYAML",
     "invoke",
     "typer",
     "sh",
+    "jsonpatch>=1.33",
+    "ipykernel",
 ]
 
 [project.urls]
@@ -27,39 +29,194 @@ Documentation = "https://github.com/joeblackwaslike/resume-builder"
 Issues = "https://github.com/joeblackwaslike/resume-builder/issues"
 Source = "https://github.com/joeblackwaslike/resume-builder"
 
+[dependency-groups]
+dev = [
+    "mypy>=1.13",
+    "ruff>=0.9.2",
+]
+
 [build-system]
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-resume-builder = "resume_builder.cli:app"
+builder = "resume_builder.cli:app"
+
+[tool.setuptools]
+py-modules = ["src"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.isort]
-profile = "wemake"
-src_paths = ["builder"]
-force_single_line = true
-use_parentheses = true
-atomic = true
-lines_after_imports = 2
-line_length = 100
-order_by_type = false
-known_first_party = ["builder"]
+[tool.mypy]
+# The mypy configurations: http://bit.ly/2zEl9WI
+files = ["src"]
+plugins = ["pydantic.mypy"]
+strict = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+warn_unreachable = true
+exclude = [
+    ".git",
+    "*.egg-info",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "docker-texlive",
+    "export",
+    "latex",
+    "scripts",
+    "data",
+]
 
-[tool.black]
-exclude = '''
-/(
-    \.git
-    \.venv
-    \data
-    \docker-texlive
-    \export
-    \latex
-    \scripts
-  | \data
-)/
-'''
-line_length = 100
-safe = true
+# [tool.pytest.ini_options]
+# # pytest config: http://doc.pytest.org/en/latest/customize.html
+# pythonpath = ["src"]
+# testpaths = ["tests"]
+
+[tool.ruff]
+# Ruff config: https://docs.astral.sh/ruff/settings
+target-version = "py38"
+line-length = 100
+fix = true
+
+[tool.ruff.lint]
+select = [
+    "A",    # flake8-builtins
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "C90",  # maccabe
+    "COM",  # flake8-commas
+    "D",    # pydocstyle
+    "DTZ",  # flake8-datetimez
+    "E",    # pycodestyle
+    "ERA",  # flake8-eradicate
+    "EXE",  # flake8-executable
+    "F",    # pyflakes
+    "FBT",  # flake8-boolean-trap
+    "FLY",  # pyflint
+    "FURB", # refurb
+    "G",    # flake8-logging-format
+    "I",    # isort
+    "ICN",  # flake8-import-conventions
+    "ISC",  # flake8-implicit-str-concat
+    "LOG",  # flake8-logging
+    "N",    # pep8-naming
+    "PERF", # perflint
+    "PIE",  # flake8-pie
+    "PL",   # pylint
+    "PT",   # flake8-pytest-style
+    "PTH",  # flake8-use-pathlib
+    "Q",    # flake8-quotes
+    "RET",  # flake8-return
+    "RSE",  # flake8-raise
+    "RUF",  # ruff
+    "S",    # flake8-bandit
+    "SIM",  # flake8-simpify
+    "SLF",  # flake8-self
+    "SLOT", # flake8-slots
+    "T100", # flake8-debugger
+    "TRY",  # tryceratops
+    "UP",   # pyupgrade
+    "W",    # pycodestyle
+    "YTT",  # flake8-2020
+]
+ignore = [
+    "A005",   # allow to shadow stdlib and builtin module names
+    "COM812", # trailing comma, conflicts with `ruff format`
+    # Different doc rules that we don't really care about:
+    "D100",
+    "D104",
+    "D106",
+    "D203",
+    "D212",
+    "D401",
+    "D404",
+    "D405",
+    "E501",    # line too long
+    "E731",    # do not assign lambda
+    "ISC001",  # implicit string concat conflicts with `ruff format`
+    "ISC003",  # prefer explicit string concat over implicit concat
+    "PLR09",   # we have our own complexity rules
+    "PLR2004", # do not report magic numbers
+    "PLR6301", # do not require classmethod / staticmethod when self not used
+    "TRY003",  # long exception messages from `tryceratops`
+]
+exclude = [
+    ".git",
+    "*.egg-info",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "docker-texlive",
+    "export",
+    "latex",
+    "scripts",
+    "data",
+]
+
+# Plugin configs:
+flake8-import-conventions.banned-from = [ "ast" ]
+flake8-quotes.inline-quotes = "double"
+mccabe.max-complexity = 6
+pydocstyle.convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"src/resume_builder/*.py" = [
+  "S101", # asserts
+  "S105", # hardcoded passwords
+  "S404", # subprocess calls are for tests
+  "S603", # do not require `shell=True`
+  "S607", # partial executable paths
+  "D103", # docstrings on public functions
+]
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = false
+exclude = [
+    ".git",
+    "*.egg-info",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "docker-texlive",
+    "export",
+    "latex",
+    "scripts",
+    "data",
+]

@@ -141,6 +141,7 @@
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
+
 % Text colors
 \definecolor{darktext}{HTML}{414141}
 \colorlet{text}{darkgray}
@@ -220,11 +221,8 @@
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{graytext} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 \newcommand*{\descriptionkeywordsstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\upshape\color{text} #1}}
-
 \newcommand*{\projectdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\upshape\color{graytext} #1}}
-
 \newcommand*{\entrylinkstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\color{graytext} #1}}
-
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}

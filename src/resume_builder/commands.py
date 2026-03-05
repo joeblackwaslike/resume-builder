@@ -1,5 +1,6 @@
-from pylatex.base_classes import CommandBase, Command, ContainerCommand
+from pylatex.base_classes import Command, CommandBase, ContainerCommand
 from pylatex.utils import NoEscape
+
 from . import jsonresume
 
 
@@ -40,12 +41,7 @@ class BaseObject(ContainerCommand):
     def __repr__(self):
         return "{}({})".format(
             type(self).__name__,
-            ", ".join(
-                [
-                    "{}={!r}".format(key, getattr(self, key))
-                    for key in self._props
-                ]
-            ),
+            ", ".join([f"{key}={getattr(self, key)!r}" for key in self._props]),
         )
 
     def dumps(self):
@@ -59,14 +55,12 @@ class BaseObject(ContainerCommand):
 
         string = ""
 
-        start = Command(
-            self.latex_name, arguments=self.arguments, options=self.options
-        )
+        start = Command(self.latex_name, arguments=self.arguments, options=self.options)
 
         string += start.dumps()
 
         if content != "":
-            string += "{{ \n {} \n}}".format(content)
+            string += f"{{ \n {content} \n}}"
 
         return string
 
@@ -111,9 +105,7 @@ class Skill(BaseObject):
     def from_jsonresume(cls, dict_):
         data = jsonresume.parse_common("name", dict_)
         data["skills"] = NoEscape(
-            jsonresume.stringify_sequence(dict_.get("keywords")).replace(
-                "LaTeX", "\LaTeX"
-            )
+            jsonresume.stringify_sequence(dict_.get("keywords")).replace("LaTeX", r"\LaTeX")
         )
         return cls(**data)
 
@@ -135,7 +127,7 @@ class Experience(Entry):
     @classmethod
     def from_jsonresume(cls, dict_):
         data = jsonresume.parse_common("position location", dict_)
-        data["organization"] = dict_.get("company", "")
+        data["organization"] = dict_.get("name") or dict_.get("company")
         data["dates"] = jsonresume.format_date_range(
             start=dict_.get("startDate"),
             end=dict_.get("endDate", "Present"),
@@ -176,9 +168,9 @@ class Education(Entry):
 
 class Project(BaseObject):
     _latex_name = "cvproject"
-    _props = "name url summary keywords"
+    _props = "name url description keywords"
 
-    def __init__(self, name="", url="", summary="", keywords=""):
+    def __init__(self, name="", url="", description="", keywords=""):
         lcls = locals()
         lcls.pop("self")
         BaseObject.__init__(self, **lcls)
@@ -187,6 +179,6 @@ class Project(BaseObject):
 class OSProject(Project):
     @classmethod
     def from_jsonresume(cls, dict_):
-        data = jsonresume.parse_common("name url summary", dict_)
+        data = jsonresume.parse_common("name url description", dict_)
         data["keywords"] = jsonresume.stringify_sequence(dict_.get("keywords"))
         return cls(**data)
