@@ -690,8 +690,10 @@
 \newcommand*{\cvpublication}[5]{%
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth - 2em}{L{\textwidth - 5in - 2em} R{5in}}
-      \entrytitlestyle{#1} & \entrydatestyle{#2 \hspace{.3em}\textbullet\hspace{.3em} #3} \\
+  \begin{tabular*}{\textwidth - 2em}{L{\textwidth - 4cm - 2em} R{4cm}}
+      \entrypositionstyle{#1} & \ifthenelse{\equal{#2}{}}
+        {\entrydatestyle{#3}}
+        {\entrydatestyle{#2 \hspace{.3em}\textbullet\hspace{.3em} #3}} \\
       \multicolumn{2}{L{\textwidth - 2em}}{\entrylinkstyle{\href{#4}{#4}}} \\
       \multicolumn{2}{L{\textwidth - 2em}}{\projectdescriptionstyle{#5}} \\
   \end{tabular*}\vspace{2mm}
