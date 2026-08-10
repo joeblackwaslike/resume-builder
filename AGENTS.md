@@ -64,5 +64,5 @@ The export filename is derived from the YAML `meta` fields: `Joe_Black_v{version
 
 - Python 3.8+, managed with `uv`
 - Typer CLI, PyYAML, jsonpatch, PyLaTeX, sh
-- XeLaTeX for PDF rendering (requires a TeX Live install or the Docker image in `docker-texlive/`)
+- XeLaTeX for PDF rendering (`docker pull joeblackwaslike/texlive:2016`)
 - Ruff for lint/format, mypy for type checking
