@@ -110,7 +110,7 @@
 %% Page Layout
 % Configure page margins with geometry
 % \geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
-\geometry{left=0.5in, top=0.5in, right=0.5in, bottom=0.5in, footskip=0in}
+\geometry{left=0.4in, top=0.35in, right=0.4in, bottom=0.3in, footskip=0in}
 
 
 %% Header & Footer
@@ -396,7 +396,7 @@
 % \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{3mm}
+\newcommand{\acvSectionTopSkip}{1mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
@@ -599,7 +599,7 @@
   \begin{adjustwidth}{1em}{1em}
 }{%
   \end{adjustwidth}
-  \vspace{-2mm}
+  \vspace{-3mm}
 }
 
 % Define an entry of cv information
@@ -622,7 +622,7 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{-4.5mm}
   \begin{justify}
   \begin{itemize}[leftmargin=1.2em, rightmargin=2.7em, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -630,7 +630,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{-4.5mm}
 }
 
 % Define an environment for cvsubentry
@@ -662,7 +662,7 @@
   \begin{adjustwidth}{1em}{1em}
 }{%
   \end{adjustwidth}
-  \vspace{-2mm}
+  \vspace{-3mm}
 }
 
 % Define an cv project
@@ -674,6 +674,26 @@
       \entrypositionstyle{#1} & \entrylinkstyle{\href{#2}{#2}} \\
       \multicolumn{2}{L{\textwidth - 2em}}{\projectdescriptionstyle{#3}} \\
       \multicolumn{2}{L{\textwidth - 2em}}{\descriptionkeywordsstyle{#4}} \\
+  \end{tabular*}\vspace{2mm}
+}
+
+% Define an environment for cvpublication
+\newenvironment{cvpublications}{%
+  \begin{adjustwidth}{1em}{1em}
+}{%
+  \end{adjustwidth}
+  \vspace{-3mm}
+}
+
+% Define a cv publication
+% Usage: \cvpublication{<name>}{<publisher>}{<date>}{<url>}{<summary>}
+\newcommand*{\cvpublication}[5]{%
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth - 2em}{L{\textwidth - 5in - 2em} R{5in}}
+      \entrytitlestyle{#1} & \entrydatestyle{#2 \hspace{.3em}\textbullet\hspace{.3em} #3} \\
+      \multicolumn{2}{L{\textwidth - 2em}}{\entrylinkstyle{\href{#4}{#4}}} \\
+      \multicolumn{2}{L{\textwidth - 2em}}{\projectdescriptionstyle{#5}} \\
   \end{tabular*}\vspace{2mm}
 }
 

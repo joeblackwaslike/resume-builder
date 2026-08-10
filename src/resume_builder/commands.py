@@ -182,3 +182,20 @@ class OSProject(Project):
         data = jsonresume.parse_common("name url description", dict_)
         data["keywords"] = jsonresume.stringify_sequence(dict_.get("keywords"))
         return cls(**data)
+
+
+class Publication(BaseObject):
+    _latex_name = "cvpublication"
+    _props = "name publisher date url summary"
+
+    def __init__(self, name="", publisher="", date="", url="", summary=""):
+        lcls = locals()
+        lcls.pop("self")
+        BaseObject.__init__(self, **lcls)
+
+    @classmethod
+    def from_jsonresume(cls, dict_):
+        data = jsonresume.parse_common("name publisher summary", dict_)
+        data["url"] = dict_.get("url") or dict_.get("website", "")
+        data["date"] = jsonresume.format_date(dict_.get("releaseDate", ""), fmt="%m/%Y")
+        return cls(**data)

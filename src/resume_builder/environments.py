@@ -26,5 +26,9 @@ class Projects(EnvironmentBase):
     _latex_name = "cvprojects"
 
 
+class Publications(EnvironmentBase):
+    _latex_name = "cvpublications"
+
+
 class Items(EnvironmentBase):
     _latex_name = "cvitems"

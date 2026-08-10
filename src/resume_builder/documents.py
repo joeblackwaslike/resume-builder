@@ -10,10 +10,11 @@ from .commands import (
     Item,
     MakeCVHeader,
     OSProject,
+    Publication,
     Section,
     Skill,
 )
-from .environments import Awards, Entries, Items, Paragraph, Projects, Skills
+from .environments import Awards, Entries, Items, Paragraph, Projects, Publications, Skills
 
 
 class ResumeDocument(Document):
@@ -117,6 +118,14 @@ class ResumeDocument(Document):
                 project = OSProject.from_jsonresume(item)
                 block.append(project)
 
+    def _add_publications(self, data, title="Publications"):
+        if "publications" in self._exclude or not data.get("publications"):
+            return
+        self.add_section(title)
+        with self.create(Publications()) as block:
+            for item in data["publications"]:
+                block.append(Publication.from_jsonresume(item))
+
     def _add_volunteer(self, data, title="Community Engagement"):
         if "volunteer" in self._exclude or not data.get("volunteer"):
             return
@@ -160,6 +169,7 @@ class ResumeDocument(Document):
         doc._add_skills(data)
         doc._add_work(data)
         doc._add_projects(data)
+        doc._add_publications(data)
         doc._add_volunteer(data)
         doc._add_awards(data)
         doc._add_education(data)
