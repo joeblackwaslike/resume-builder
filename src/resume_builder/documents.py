@@ -170,8 +170,8 @@ class ResumeDocument(Document):
         doc._add_work(data)
         doc._add_projects(data)
         doc._add_publications(data)
-        doc._add_volunteer(data)
         doc._add_awards(data)
+        doc._add_volunteer(data)
         doc._add_education(data)
 
         return doc
