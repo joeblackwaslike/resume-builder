@@ -1,4 +1,5 @@
 from datetime import datetime
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 def parse_common(names, data):
@@ -43,6 +44,26 @@ def format_date_range(start, end, fmt="%m/%Y"):
     if start == end:
         return start
     return f"{start} -- {end}"
+
+
+def clean_url(url):
+    if not url:
+        return url
+    parts = urlsplit(url)
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+
+
+def add_utm_params(url, **params):
+    if not url:
+        return url
+    parts = urlsplit(url)
+    query = dict(parse_qsl(parts.query))
+    query.update({k: v for k, v in params.items() if v})
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
+
+
+def build_utm_campaign(meta):
+    return "-".join(str(p) for p in (meta.get("version"), meta.get("role"), meta.get("patch")) if p)
 
 
 def add_items(obj, items):

@@ -124,7 +124,7 @@ class ResumeDocument(Document):
         self.add_section(title)
         with self.create(Publications()) as block:
             for item in data["publications"]:
-                block.append(Publication.from_jsonresume(item))
+                block.append(Publication.from_jsonresume(item, meta=data.get("meta")))
 
     def _add_volunteer(self, data, title="Community Engagement"):
         if "volunteer" in self._exclude or not data.get("volunteer"):

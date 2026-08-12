@@ -186,16 +186,21 @@ class OSProject(Project):
 
 class Publication(BaseObject):
     _latex_name = "cvpublication"
-    _props = "name publisher date url summary"
+    _props = "name publisher date url display_url summary"
 
-    def __init__(self, name="", publisher="", date="", url="", summary=""):
+    def __init__(self, name="", publisher="", date="", url="", display_url="", summary=""):
         lcls = locals()
         lcls.pop("self")
         BaseObject.__init__(self, **lcls)
 
     @classmethod
-    def from_jsonresume(cls, dict_):
+    def from_jsonresume(cls, dict_, meta=None):
         data = jsonresume.parse_common("name publisher summary", dict_)
-        data["url"] = dict_.get("url") or dict_.get("website", "")
+        clean_url = jsonresume.clean_url(dict_.get("url") or dict_.get("website", ""))
+        data["display_url"] = clean_url
+        campaign = jsonresume.build_utm_campaign(meta or {})
+        data["url"] = jsonresume.add_utm_params(
+            clean_url, utm_source="resume", utm_medium="pdf", utm_campaign=campaign
+        )
         data["date"] = jsonresume.format_date(dict_.get("releaseDate", ""), fmt="%m/%Y")
         return cls(**data)
