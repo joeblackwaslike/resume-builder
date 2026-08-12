@@ -48,8 +48,8 @@ Summary
  Senior Backend Engineer with 10+ years of experience architecting, scaling, and maintaining backend systems and developer-facing SDKs that support
  millions of users. Deep expertise in Python with a proven track record of improving reliability, reducing error rates, and crafting developer tooling
  that teams love to use. Experienced conducting incident response and root cause analysis, and translating internal team needs into durable platform
- improvements. More recently, building AI agent infrastructure — MCP servers, context-efficient code execution, and multi-agent PR review — with
- measured token reductions of up to 99% in production agent workflows.
+ improvements. More recently, building AI agent infrastructure: MCP servers, context-efficient code execution, and multi-agent PR review with measured
+ token reductions of up to 99% in production agent workflows.
 Technical Skills
   Languages          Python, Shell, Javascript, Typescript, Node.js, Solidity, Golang, Ruby/Rails, Rust, HTML, CSS
   Technologies       Crypto, AI/LLM/LangChain, SQL, PostgreSQL, MySQL, MongoDB, Redis, Neo4j, REST, GraphQL, OAuth/OIDC, FastAPI, LATEX
