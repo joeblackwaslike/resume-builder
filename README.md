@@ -39,7 +39,7 @@ And just because I'm a total nerd, here is an example of the text extracted from
 
 ```
 Joe Black
-Backend software engineer | Python expert
+Backend software engineer | Agentic AI Infrastructure
 New York, NY              646.924.7718                me@joeblack.nyc                   joeblack.nyc               joeblack949                joeblackwaslike
 
 
@@ -140,6 +140,9 @@ Publications
  Essay on the operational scaffolding required for reliable autonomous coding agents — adversarial design review, agent-native issue tracking, tiered verification,
  and a memory system that recursively indexed itself into 8,500+ sessions in two days.
 
+Awards
+ Winner                 Stanford Datajam, a hackathon sponsored by the US Department of Education. (2014)                                               Palo Alto, CA
+
 Community Engagement
  Mentor                                                                                                                                                  2013 – 2015
  Noisebridge Hackerspace                                                                                                                           San Francisco, CA
@@ -148,9 +151,5 @@ Community Engagement
  Speaker                                                                                                                                                         2014
  HackMiami Conference                                                                                                                                       Miami, FL
  • Delivered a bio-hacking talk discussing the usage of various technologies, proteins, and growth factors for cognitive enhancement with the co-founder of Hack Miami.
-
-
-Awards
- Winner                  Stanford Datajam, a hackathon sponsored by the US Department of Education. (2014)                                              Palo Alto, CA
 
 ```
