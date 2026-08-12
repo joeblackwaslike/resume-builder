@@ -39,7 +39,7 @@ And just because I'm a total nerd, here is an example of the text extracted from
 
 ```
 Joe Black
-Backend software engineer | Agentic AI Infrastructure
+Backend software engineer | Agentic AI infrastructure
 New York, NY              646.924.7718                me@joeblack.nyc                   joeblack.nyc               joeblack949                joeblackwaslike
 
 
