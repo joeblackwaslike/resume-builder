@@ -106,25 +106,26 @@ Work Experience
    maintaining core privacy principles.
 
 Open Source Projects
+ lessons-learned                                                                                                  https://github.com/joeblackwaslike/lessons-learned
+ Claude Code plugin providing persistent memory of failure patterns across AI agent sessions. Captures mistakes via structured tags and heuristic scanning, then
+ injects preventive warnings before matching tool calls. Curated to 136 active lessons validated by 87 eval test scenarios, backed by 297 automated tests.
+ typescript, claude-code, plugin, developer-tools, agent-memory, eval-testing
+
+ jobsearch-tracker                                                                                              https://github.com/joeblackwaslike/jobsearch-tracker
+ Full-stack job search platform with dashboard, data visualizations, and AI-assisted workflows. Features include a Chrome extension for automatic tracking,
+ multi-stage task orchestration with human-in-the-loop approval, iterative document refinement, and privacy-first integration design. Built with TanStack Start,
+ React 19, Supabase, and shadcn/ui.
+ typescript, react, full-stack, tanstack, supabase, chrome-extension
+
  mcp-exec                                                                                                               https://github.com/joeblackwaslike/mcp-exec
  MCP server enabling sandboxed code execution for AI agents, keeping intermediate tool results out of the context window. Reduced token usage by up to 99.8%
  (52K to 50 tokens) on multi-tool workflows across Claude Code, Cursor, and other MCP-compatible agents.
  typescript, mcp, agent-infrastructure, sandboxing, node.js
 
- idiomatic                                                                                                              https://github.com/joeblackwaslike/idiomatic
- Language-abstracted idiom enforcement framework for AI coding agents and humans, built in Rust with Python and Node.js bindings. Sub-100ms autofix gate
- backed by ast-grep, eliminating repetitive code review feedback.
- rust, ast-grep, pyo3, napi, developer-tools
-
  ai-review-bot                                                                                                      https://github.com/joeblackwaslike/ai-review-bot
  Autonomous multi-agent PR reviewer deployed on Vercel, orchestrating five specialized review agents (bugs, error handling, test coverage, security, quality)
  across both Claude and OpenAI models with automatic deduplication and model-tier routing.
  typescript, vercel, multi-agent, code-review, github-apps
-
- lessons-learned                                                                                                  https://github.com/joeblackwaslike/lessons-learned
- Claude Code plugin providing persistent memory of failure patterns across AI agent sessions. Captures mistakes via structured tags and heuristic scanning, then
- injects preventive warnings before matching tool calls. Curated to 136 active lessons validated by 87 eval test scenarios, backed by 297 automated tests.
- typescript, claude-code, plugin, developer-tools, agent-memory, eval-testing
 
  spinup-py / spinup-ts                                                                                                 https://github.com/joeblackwaslike/spinup-py
  Paired project-scaffolding CLIs with an identical CLI schema for Python and TypeScript. spinup-py standardizes on uv, ruff, mypy, and pytest; spinup-ts on pnpm,
