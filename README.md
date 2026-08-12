@@ -134,8 +134,8 @@ Open Source Projects
 
 
 Publications
- I Thought I'd Lost the Plot. I Was Writing It.                                                                                           joeblack.nyc • 08/2026
- https://example.com
+ I Thought I'd Lost the Plot. I Was Writing It.                                                                                                              08/2026
+ https://joeblackwaslike.substack.com/p/i-thought-id-lost-the-plot-i-was
  Essay on the operational scaffolding required for reliable autonomous coding agents — adversarial design review, agent-native issue tracking, tiered verification,
  and a memory system that recursively indexed itself into 8,500+ sessions in two days.
 
